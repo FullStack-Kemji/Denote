@@ -1,0 +1,255 @@
+{% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} Home {% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'bootstrap-5.3.8-dist/css/bootstrap.min.css' %}">
+
+    </head>
+    <body>
+                <style>
+
+                *{
+                    font-family: cursive;
+                    font-style: italic;
+
+                }
+
+                p{
+                    color: #6c757d;
+                    text-align: left;
+
+                }   
+            
+                h1 {
+                    display: flex;
+                    justify-content: center;
+                }           
+
+            
+
+                #color_difference{
+                    color: #89CFF0;
+                }
+
+                #title{
+                    color: #6c757d;
+                }
+
+                #title:hover{
+                    text-decoration: underline;
+                }
+
+                a{
+                    color: #6c757d;
+                    text-decoration: none;
+                }
+
+                a:hover{
+                    color: #89CFF0;
+                }
+                
+                .nav {
+                    padding-top: 0.5%;
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                .footer {
+                    display: block;
+                    position: fixed;
+                    left: 50%;
+                    bottom: 20px;
+                    transform: translateX(-50%);
+                }
+
+                .custom-btn {
+                    background-color: #89CFF0;
+                    color: white;
+                    
+                }
+
+                .custom-btn:hover {
+                    background-color: #6c757d;
+                    color: black;
+                }
+
+                #List {
+                    height: 20rem;
+                    width: 15rem;
+                    padding-right: 10%;
+                    margin-top: -2rem;
+                }
+
+                .center{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                p{
+                    display: inline;
+                    flex-direction: column;
+                    justify-content: left;
+                    align-items: center;
+                    text-align: left;
+                    padding-left: 1%;
+                }
+
+                p:hover{
+                    cursor: default;
+                }
+                
+                .description{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 2rem;
+                }
+                #question{
+                    color: #89CFF0;
+                    display: flex;
+                    justify-content: left;
+                    padding-left: 1%;
+                }
+
+                #question:hover {
+                    text-decoration: underline;
+                    cursor: default;
+                }
+
+                .logo {
+                    position: fixed;
+                    display: flex;
+                    justify-content: center;
+                    bottom: 10px;
+                    height: 10vh;
+                    width: auto;
+                    margin-top: 3%;
+                }
+
+                .logo2{
+
+                    display: flex;
+                    justify-content: center;
+                    height: 10vh;
+                    width: auto;
+                }
+                
+                #create{
+                    color: #89CFF0;
+                }
+
+                #create:hover{
+                    color: #6c757d;
+                }
+
+                .denote {
+                    color: #89CFF0;
+                    display: inline;
+                }
+                .paragraph-link {
+                    color: #89CFF0;
+                    text-decoration: underline;
+                    font-weight: bold;
+                }
+                
+                #title:hover{
+                    cursor: default;
+                }
+               
+
+            </style>
+            <a href="{% url 'index' %}">
+            <img src="{% static 'images/notes.png' %}" alt="" class="logo2"></a>
+
+    <div class="nav">
+        <a href="/view"><h1>View</h1></a>
+        <h1 id="title">De<span id="color_difference">note</span></h1>
+        <a href="/create" id="create"><h1>Create</h1></a>
+    </div>
+        
+        <hr class="border border-3 border-primary">
+        
+            {% block content %}
+                {% if request.user.is_authenticated %}
+            
+                <h1 id="question">Tired Of Lists?</h1>
+            
+            
+                <div class="description">
+                    
+                    <p>
+                        <a href="/login/" style="color: #89CFF0; text-decoration: underline; font-weight: bold;">Logout</a>
+                        <br>
+                    Tired of losing track of your ideas, reminders, or important thoughts? <span class="denote">Denote</span> is here to change the way you take notes and manage them effortlessly. This app is designed with simplicity and efficiency in mind, allowing you to capture every thought, plan, and idea in one secure place. Whether it’s a quick reminder, a to-do list, or an important piece of information, <span class="denote">Denote</span> ensures that your notes are always organized and easily accessible. With <span class="denote">Denote</span>, creating a note is straightforward and fast. Simply enter a title and the content of your note, and with a single click, your note is saved and ready for future reference. No complicated menus or confusing interfaces — just a clean, intuitive layout that keeps the focus on what matters: your thoughts. The app’s design emphasizes clarity, making it easy to find and read your notes at a glance. One of <span class="denote">Denote</span>’s standout features is its note management system. You can view all your saved notes in a single, organized layout, giving you a clear overview of your ideas. Each note is displayed with its title and content, making it easy to identify what you’re looking for. For added convenience, <span class="denote">Denote</span> includes the ability to edit and update your notes at any time. This means your notes can evolve with your ideas, allowing you to refine your thoughts without losing previous versions. Additionally, <span class="denote">Denote</span> provides easy deletion of notes you no longer need. This keeps your workspace clean and prevents clutter from accumulating, so you always have a streamlined, organized note-taking experience. Every action in the app is designed to be intuitive and responsive, ensuring that both beginners and experienced users can navigate it without a learning curve. The app’s aesthetic is also designed to be visually appealing yet unobtrusive. With a modern, responsive layout, <span class="denote">Denote</span> adapts seamlessly to any device, whether you’re on a desktop, tablet, or mobile phone. This ensures that your notes are always accessible, no matter where you are. In short, <span class="denote">Denote</span> is the perfect companion for anyone who values their ideas and wants a simple, efficient, and reliable way to store, organize, and manage them. By focusing on ease of use, clear organization, and responsive design, <span class="denote">Denote</span> transforms note-taking from a mundane task into a streamlined and enjoyable experience. Keep your thoughts, plans, and ideas at your fingertips with <span class="denote">Denote</span> — the smart, clean, and reliable note-taking app.</p>
+                    
+                
+
+
+                
+
+            
+        <div class="center">
+                    
+            
+            <img src="{% static 'images/1f0a8780f6503de0e9ba5eebd29f3310.jpg' %}" alt="list/page" class="mx-auto" id="List">
+                
+                
+        </div></div>
+
+
+            <div class="logo">
+
+                    <img src="{% static 'images/notes.png' %}" alt="" class="mx-auto">
+
+            </div>
+
+            
+            
+        {% else %}
+
+             <h1 id="question">Tired Of Lists?</h1>
+        
+        
+            <div class="description">
+                
+                <p>
+                <a href="/login/" class="paragraph-link">Login</a><br>
+                <a href="/register" class="paragraph-link">Register</a>
+                <br>
+                Tired of losing track of your ideas, reminders, or important thoughts? <span class="denote">Denote</span> is here to change the way you take notes and manage them effortlessly. This app is designed with simplicity and efficiency in mind, allowing you to capture every thought, plan, and idea in one secure place. Whether it’s a quick reminder, a to-do list, or an important piece of information, <span class="denote">Denote</span> ensures that your notes are always organized and easily accessible. With <span class="denote">Denote</span>, creating a note is straightforward and fast. Simply enter a title and the content of your note, and with a single click, your note is saved and ready for future reference. No complicated menus or confusing interfaces — just a clean, intuitive layout that keeps the focus on what matters: your thoughts. The app’s design emphasizes clarity, making it easy to find and read your notes at a glance. One of <span class="denote">Denote</span>’s standout features is its note management system. You can view all your saved notes in a single, organized layout, giving you a clear overview of your ideas. Each note is displayed with its title and content, making it easy to identify what you’re looking for. For added convenience, <span class="denote">Denote</span> includes the ability to edit and update your notes at any time. This means your notes can evolve with your ideas, allowing you to refine your thoughts without losing previous versions. Additionally, <span class="denote">Denote</span> provides easy deletion of notes you no longer need. This keeps your workspace clean and prevents clutter from accumulating, so you always have a streamlined, organized note-taking experience. Every action in the app is designed to be intuitive and responsive, ensuring that both beginners and experienced users can navigate it without a learning curve. The app’s aesthetic is also designed to be visually appealing yet unobtrusive. With a modern, responsive layout, <span class="denote">Denote</span> adapts seamlessly to any device, whether you’re on a desktop, tablet, or mobile phone. This ensures that your notes are always accessible, no matter where you are. In short, <span class="denote">Denote</span> is the perfect companion for anyone who values their ideas and wants a simple, efficient, and reliable way to store, organize, and manage them. By focusing on ease of use, clear organization, and responsive design, <span class="denote">Denote</span> transforms note-taking from a mundane task into a streamlined and enjoyable experience. Keep your thoughts, plans, and ideas at your fingertips with <span class="denote">Denote</span> — the smart, clean, and reliable note-taking app.</p>
+        
+            <div class="center">
+                
+        
+            <img src="{% static 'images/1f0a8780f6503de0e9ba5eebd29f3310.jpg' %}" alt="list/page" class="mx-auto" id="List">
+            
+            
+             </div></div>
+
+
+           
+        {% endif %}
+            
+
+
+            
+
+        
+ 
+
+            {% endblock %}
+            <hr class="border border-3 border-primary">
+            <a href="{% url 'index' %}">
+            <footer class="footer"><button class="btn custom-btn">Thank You!</button></footer></a>
+
+
+    
+
+    
+
+    
+</body>
+</html>

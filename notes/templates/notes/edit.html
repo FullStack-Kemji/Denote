@@ -1,0 +1,53 @@
+{% extends 'notes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Edit{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <style>
+
+
+
+        .custom{
+            background-color: #89CFF0;
+            color: white;
+        }
+
+        .custom:hover{
+            background-color: #5DADE2;
+            color: black;
+        }
+        
+        .logo{
+            bottom: 10px;
+            display: flex;
+            margin-top: 13%;
+        }
+
+    </style>
+
+
+
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <div class="">
+                <button type="post" class="btn custom d-block mx-auto">Save</button>
+                <!-- had to use display block because using normal styling with flex wasnt working for me -->
+            </div>
+        </form>
+    
+    <div class="logo">
+        <img src="{% static 'images/notes.png' %}" alt="">
+    </div>
+
+    {% endblock %}
+</body>
+</html>

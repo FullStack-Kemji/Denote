@@ -1,0 +1,85 @@
+{% extends 'notes/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}View{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+        <style>
+            * {
+                color: #6c757d;
+            }
+
+            #edit {
+                background-color: #89CFF0;
+                color: white;
+            }
+
+            #edit:hover {
+                background-color: #5DADE2;
+                color: black;
+            }
+
+            .custom {
+                background-color: #6c757d;
+                color: white;
+            }
+
+            .custom:hover {
+                background-color: #5a6268 ;
+                color: black;
+            }
+
+            .logo{
+            bottom: 10px;
+            display: flex;
+            margin-top: 1.5%;
+            margin-left: 1.5%;
+        }
+
+
+
+        </style>
+
+
+
+
+<div class="container mt-4 ">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> 
+    <!-- row-cols means it will split the rows into a specified amount of columns which we changed depending on screensize -->
+   
+    {% for note in notes %}
+
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+
+            <div class="h-100 shadow-sm rounded-3" style="background-color: #E0FFFF;">
+
+                <h2 style="color:#89CFF0;">{{note.title}}</h1> <!-- use title not name -->
+                <p>{{note.content}}</p>
+                <a href="{% url 'delete' note.id %}" class="btn custom" id="Delete">Delete</a>
+                <!-- note.id is there so that it will be redirected to delete/id/ which is a url i have already registered and is assigned to views/delete already -->
+                <a href="{% url 'edit' note.id %}" class="btn" id="edit">Edit</a>
+            
+            </div>
+
+        </div>
+        
+    {% endfor %}
+</div>
+</div> 
+
+    <div class="logo">
+        <a href="{% url 'index' %}" class="logo">
+            <img src="{% static 'images/notes.png' %}" alt="logo">
+        </a>
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>

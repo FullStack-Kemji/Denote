@@ -1,0 +1,73 @@
+{% extends 'notes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Create Page{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <style>
+
+
+
+
+        .custom{
+            background-color: #89CFF0;
+            color: white;
+        }
+
+        .custom:hover{
+            background-color: #5DADE2;
+            color: black;
+        }
+
+
+        .form{
+            color: #89CFF0;
+        }
+
+        .logo{
+            bottom: 10px;
+            display: flex;
+            margin-top: 10%;
+            margin-left: 1.5%;
+        }
+
+    </style>
+    
+
+<div class="form">
+
+    <form method="post" class="p-4 bg-light rounded shadow-sm">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <div class="button">
+            <button class="btn custom d-block mx-auto" type="submit">Create Note</button>
+        </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+        
+
+         <div class="logo">
+        <a href="{% url 'index' %}" class="logo">
+            <img src="{% static 'images/notes.png' %}" alt="logo">
+        </a>
+    </div>
+
+
+    {% endblock %}
+
+</body>
+</html>

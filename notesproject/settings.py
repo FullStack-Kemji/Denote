@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-iv4bnw&l%*f0w+$0=s#iwp38#65tx14&8=hup&jz&%qf_-ucqs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['denote.onrender.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['denote-kton.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -133,3 +133,4 @@ CRISPY_TEMPLATE_PACK="bootstrap5"
 LOGIN_URL = '/accounts/login/'
 
 LOGIN_REDIRECT_URL = "/create/" 
+

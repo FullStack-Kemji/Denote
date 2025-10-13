@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-secret-key')
 SECRET_KEY = 'django-insecure-iv4bnw&l%*f0w+$0=s#iwp38#65tx14&8=hup&jz&%qf_-ucqs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -133,5 +133,6 @@ CRISPY_TEMPLATE_PACK="bootstrap5"
 LOGIN_URL = '/accounts/login/'
 
 LOGIN_REDIRECT_URL = "/create/" 
+
 
 
